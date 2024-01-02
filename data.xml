@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<restaurants xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="restaurants_schema.xsd">
+
+    <restaurant>
+        <name>Kokorako</name>
+        <rating>4.5</rating>
+        <num_reviews>1200</num_reviews>
+        <average_cost>335.50</average_cost>
+        <is_vegetarian>false</is_vegetarian>
+        <opening_date>2020-07-15</opening_date>
+        <last_inspection_datetime>2023-05-20T18:30:00</last_inspection_datetime>
+        <contact_number>9876543210</contact_number>
+        <email>kokorako@gourmethaven.com</email>
+        <cuisine>Indian</cuisine>
+        <locality>Coimbatore</locality>
+        <profit>5000</profit>
+        <restaurant_type>Fine Dining</restaurant_type>
+        <location>
+            <address>
+                <street>7 Culinary Lane</street>
+                <city>Foodville</city>
+                <state>Delicious</state>
+                <zip_code>641018</zip_code>
+            </address>
+        </location>
+        <dishes>
+            <dish>
+                <name>Grilled Salmon</name>
+                <price>19.99</price>
+            </dish>
+            <dish>
+                <name>Truffle Risotto</name>
+                <price>16.50</price>
+            </dish>
+        </dishes>
+        <opening_time>12:00 PM</opening_time>
+        <closing_time>10:00 PM</closing_time>
+    </restaurant>
+
+    <restaurant>
+        <name>Venu Biryani</name>
+        <rating>4.2</rating>
+        <num_reviews>800</num_reviews>
+        <average_cost>325.00</average_cost>
+        <is_vegetarian>true</is_vegetarian>
+        <opening_date>2021-02-10</opening_date>
+        <last_inspection_datetime>2023-04-18T16:45:00</last_inspection_datetime>
+        <contact_number>9994491103</contact_number>
+        <email>venubiriyani@spicedelight.com</email>
+        <cuisine>International</cuisine>
+        <locality>Spiceville</locality>
+        <profit>8000</profit>
+        <restaurant_type>Casual Dining</restaurant_type>
+        <location>
+            <address>
+                <street>15 Spice Street</street>
+                <city>Tasteland</city>
+                <state>Flavorful</state>
+                <zip_code>641011</zip_code>
+            </address>
+        </location>
+        <dishes>
+            <dish>
+                <name>Butter Chicken</name>
+                <price>121.99</price>
+            </dish>
+            <dish>
+                <name>Veg Biryani</name>
+                <price>102.50</price>
+            </dish>
+        </dishes>
+        <opening_time>11:30 AM</opening_time>
+        <closing_time>9:00 PM</closing_time>
+    </restaurant>
+
+    <restaurant>
+        <name>SS Hyderbad Biryani</name>
+        <rating>4.1</rating>
+        <num_reviews>8200</num_reviews>
+        <average_cost>225.00</average_cost>
+        <is_vegetarian>false</is_vegetarian>
+        <opening_date>2021-02-10</opening_date>
+        <last_inspection_datetime>2023-04-18T16:45:00</last_inspection_datetime>
+        <contact_number>9994491102</contact_number>
+        <email>sshyderabad@spicedelight.com</email>
+        <cuisine>Chettinad</cuisine>
+        <locality>Chennai</locality>
+        <profit>9000</profit>
+        <restaurant_type>Casual Dining</restaurant_type>
+        <location>
+            <address>
+                <street>2nd street </street>
+                <city>saibaba colony</city>
+                <state>TamilNadu</state>
+                <zip_code>641011</zip_code>
+            </address>
+        </location>
+        <dishes>
+            <dish>
+                <name>Butter Mutton</name>
+                <price>333.99</price>
+            </dish>
+            <dish>
+                <name>Veg Biryani</name>
+                <price>80.50</price>
+            </dish>
+        </dishes>
+        <opening_time>11:30 AM</opening_time>
+        <closing_time>9:00 PM</closing_time>
+    </restaurant>
+
+    <restaurant>
+        <name> Annaporna</name>
+        <rating>4.1</rating>
+        <num_reviews>8200</num_reviews>
+        <average_cost>321.00</average_cost>
+        <is_vegetarian>true</is_vegetarian>
+        <opening_date>2021-02-10</opening_date>
+        <last_inspection_datetime>2023-04-18T16:45:00</last_inspection_datetime>
+        <contact_number>8754844709</contact_number>
+        <email>annaporna@coimbatore.com</email>
+        <cuisine>tamil</cuisine>
+        <locality>Coimbatore</locality>
+        <profit>9000</profit>
+        <restaurant_type>Casual Dining</restaurant_type>
+        <location>
+            <address>
+                <street>23nd street </street>
+                <city>kk pudur </city>
+                <state>TamilNadu</state>
+                <zip_code>641011</zip_code>
+            </address>
+        </location>
+        <dishes>
+            <dish>
+                <name>Dosa</name>
+                <price>33.99</price>
+            </dish>
+            <dish>
+                <name>Kottu Chappati</name>
+                <price>80.50</price>
+            </dish>
+        </dishes>
+        <opening_time>11:30 AM</opening_time>
+        <closing_time>9:00 PM</closing_time>
+    </restaurant>
+
+    <restaurant>
+        <name>Meenakshi Mess</name>
+        <rating>3.1</rating>
+        <num_reviews>2200</num_reviews>
+        <average_cost>200.00</average_cost>
+        <is_vegetarian>false</is_vegetarian>
+        <opening_date>2021-02-10</opening_date>
+        <last_inspection_datetime>2023-04-18T16:45:00</last_inspection_datetime>
+        <contact_number>8789456127</contact_number>
+        <email>Meenakshi@coimbatore.com</email>
+        <cuisine>Indian</cuisine>
+        <locality>Coimbatore</locality>
+        <profit>10000</profit>
+        <restaurant_type>Casual Dining</restaurant_type>
+        <location>
+            <address>
+                <street>ramadas street </street>
+                <city>ram pudur </city>
+                <state>TamilNadu</state>
+                <zip_code>641011</zip_code>
+            </address>
+        </location>
+        <dishes>
+            <dish>
+                <name>Chicken Shawarma</name>
+                <price>103.99</price>
+            </dish>
+            <dish>
+                <name>Kottu Porotta</name>
+                <price>180.50</price>
+            </dish>
+        </dishes>
+        <opening_time>11:30 AM</opening_time>
+        <closing_time>9:00 PM</closing_time>
+    </restaurant>
+
+</restaurants>

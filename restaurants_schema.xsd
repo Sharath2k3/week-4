@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="restaurants">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="restaurant" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name" type="xs:string"/>
+                            <xs:element name="rating" type="xs:float"/>
+                            <xs:element name="num_reviews" type="xs:positiveInteger"/>
+                            <xs:element name="average_cost" type="xs:decimal"/>
+                            <xs:element name="is_vegetarian" type="xs:boolean"/>
+                            <xs:element name="opening_date" type="xs:date"/>
+                            <xs:element name="last_inspection_datetime" type="xs:dateTime"/>
+                            <xs:element name="contact_number" type="xs:string" pattern="[0-9]{10}"/>
+                            <xs:element name="email" type="xs:string" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"/>
+                            <xs:element name="cuisine" type="xs:string"/>
+                            <xs:element name="locality" type="xs:string"/>
+                            <xs:element name="restaurant_type" type="xs:string"/>   
+                            <xs:element name="profit" type="xs:positiveInteger"/>
+                            <xs:element name="location">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="address">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="street" type="xs:string"/>
+                                                    <xs:element name="city" type="xs:string"/>
+                                                    <xs:element name="state" type="xs:string"/>
+                                                    <xs:element name="zip_code" type="xs:positiveInteger"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="dishes">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="dish" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="name" type="xs:string"/>
+                                                    <xs:element name="price" type="xs:decimal"/>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="opening_time" type="xs:string"/>
+                            <xs:element name="closing_time" type="xs:string"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

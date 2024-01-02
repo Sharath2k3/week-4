@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Information</title>
+</head>
+<body>
+
+<h2>Restaurant Information</h2>
+
+<div id="addressContainer">
+    <h3>Addresses</h3>
+    <ul id="addresses"></ul>
+</div>
+
+<div id="storeNameContainer">
+    <h3>Store Names</h3>
+    <ul id="storeNames"></ul>
+</div>
+
+<div id="indianCuisineContainer">
+    <h3>Indian Cuisine Restaurants</h3>
+    <ul id="indianCuisineNames"></ul>
+</div>
+
+<div id="specificRestaurantContainer">
+    <h3>Specific Restaurant Information</h3>
+    <button onclick="getSpecificRestaurant()">Get Information</button>
+    <p id="specificRestaurantInfo"></p>
+</div>
+
+<script>
+// Function to fetch and display restaurant information
+function displayRestaurantInfo() {
+    // Fetch the XML content
+    fetch('data.xml')
+        .then(response => response.text())
+        .then(xmlString => {
+            // Parse the XML
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+            // Retrieve all addresses
+            const addresses = xmlDoc.evaluate('//restaurant/location/address', xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let addressesHtml = '';
+            let addressNode = addresses.iterateNext();
+            while (addressNode) {
+                const street = addressNode.querySelector('street').textContent;
+                const city = addressNode.querySelector('city').textContent;
+                const state = addressNode.querySelector('state').textContent;
+                const zipCode = addressNode.querySelector('zip_code').textContent;
+                addressesHtml += `<li>${street}, ${city}, ${state} - ${zipCode}</li>`;
+                addressNode = addresses.iterateNext();
+            }
+            document.getElementById('addresses').innerHTML = addressesHtml;
+
+            // Retrieve all store names
+            const storeNames = xmlDoc.evaluate('//restaurant/name', xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let storeNamesHtml = '';
+            let storeNameNode = storeNames.iterateNext();
+            while (storeNameNode) {
+                storeNamesHtml += `<li>${storeNameNode.textContent}</li>`;
+                storeNameNode = storeNames.iterateNext();
+            }
+            document.getElementById('storeNames').innerHTML = storeNamesHtml;
+
+            // Retrieve names of restaurants with Indian cuisine
+            const indianCuisineNames = xmlDoc.evaluate('//restaurant[cuisine="Indian"]/name', xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let indianCuisineNamesHtml = '';
+            let indianCuisineNode = indianCuisineNames.iterateNext();
+            while (indianCuisineNode) {
+                indianCuisineNamesHtml += `<li>${indianCuisineNode.textContent}</li>`;
+                indianCuisineNode = indianCuisineNames.iterateNext();
+            }
+            document.getElementById('indianCuisineNames').innerHTML = indianCuisineNamesHtml;
+        })
+        .catch(error => {
+            console.error('Error fetching XML:', error);
+        });
+}
+
+// Function to get information for a specific restaurant
+function getSpecificRestaurant() {
+    const restaurantName = prompt('Enter the name of the restaurant:');
+    if (restaurantName) {
+        fetch('data.xml')
+            .then(response => response.text())
+            .then(xmlString => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
+
+                // Use XPath to select the specific restaurant by name
+                const specificRestaurantInfo = xmlDoc.evaluate(`//restaurant[name="${restaurantName}"]`, xmlDoc, null, XPathResult.ANY_TYPE, null);
+
+                // Get the information and display it
+                const specificRestaurantNode = specificRestaurantInfo.iterateNext();
+                if (specificRestaurantNode) {
+                    const street = specificRestaurantNode.querySelector('street').textContent;
+                    const city = specificRestaurantNode.querySelector('city').textContent;
+                    const state = specificRestaurantNode.querySelector('state').textContent;
+                    const zipCode = specificRestaurantNode.querySelector('zip_code').textContent;
+
+                    const specificRestaurantInfoHtml = `${restaurantName}: ${street}, ${city}, ${state} - ${zipCode}`;
+                    document.getElementById('specificRestaurantInfo').innerText = specificRestaurantInfoHtml;
+                } else {
+                    document.getElementById('specificRestaurantInfo').innerText = 'Restaurant not found.';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching XML:', error);
+            });
+    }
+}
+
+// Call the function when the page loads
+window.onload = displayRestaurantInfo;
+</script>
+
+</body>
+</html>
