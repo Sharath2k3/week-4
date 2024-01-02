@@ -41,7 +41,7 @@ function checkArrival() {
       carRect.top < locationRect.bottom &&
       carRect.bottom > locationRect.top
     ) {
-      window.location.href = 'localhost:8000/mainpage.html';
+      window.location.href = 'mainpage.html';
     }
   }
 }
