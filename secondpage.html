@@ -81,13 +81,8 @@ function displayRestaurantInfo() {
             document.getElementById('indianCuisineNames').innerHTML = indianCuisineNamesHtml;
 
             // Calculate and display the total profit
-            const profits = xmlDoc.evaluate('//restaurant/profit', xmlDoc, null, XPathResult.ANY_TYPE, null);
-            let totalProfit = 0;
-            let profitNode = profits.iterateNext();
-            while (profitNode) {
-                totalProfit += parseInt(profitNode.textContent);
-                profitNode = profits.iterateNext();
-            }
+            const profits = xmlDoc.evaluate('sum(//restaurant/profit)', xmlDoc, null, XPathResult.NUMBER_TYPE, null);
+            const totalProfit = profits.numberValue;
             document.getElementById('totalProfit').innerText = `Total Profit: ${totalProfit}`;
         })
         .catch(error => {
