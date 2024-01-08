@@ -112,7 +112,45 @@ function getSpecificRestaurant() {
             });
     }
 }
+    
+function calculateTotalPrice() {
+    fetch('data.xml')
+        .then(response => response.text())
+        .then(xmlString => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
 
+            // Retrieve all restaurant prices
+            const restaurantPrices = xmlDoc.evaluate('//restaurant/price', xmlDoc, null, XPathResult.ANY_TYPE, null);
+            let totalPrice = 0;
+
+            let priceNode = restaurantPrices.iterateNext();
+            while (priceNode) {
+                // Convert the price to a numeric value and add it to the total
+                const price = parseFloat(priceNode.textContent);
+                if (!isNaN(price)) {
+                    totalPrice += price;
+                }
+
+                priceNode = restaurantPrices.iterateNext();
+            }
+
+            // Display the total price
+            alert(`Total Price of All Restaurants: $${totalPrice.toFixed(2)}`);
+        })
+        .catch(error => {
+            console.error('Error fetching XML:', error);
+        });
+}
+
+// Call the calculateTotalPrice function when needed, for example, by adding a button:
+document.addEventListener('DOMContentLoaded', function() {
+    const calculatePriceButton = document.createElement('button');
+    calculatePriceButton.textContent = 'Calculate Total Price';
+    calculatePriceButton.onclick = calculateTotalPrice;
+    document.body.appendChild(calculatePriceButton);
+});
+    
 // Call the function when the page loads
 window.onload = displayRestaurantInfo;
 </script>
