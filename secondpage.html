@@ -30,11 +30,6 @@
     <p id="specificRestaurantInfo"></p>
 </div>
 
-<div id="profitContainer">
-    <h3>Total Profit</h3>
-    <p id="totalProfit"></p>
-</div>
-
 <script>
 // Function to fetch and display restaurant information
 function displayRestaurantInfo() {
@@ -117,24 +112,7 @@ function getSpecificRestaurant() {
             });
     }
 }
-    
-function calculateTotalProfit(xmlDoc) {
-    const restaurants = xmlDoc.evaluate('//restaurant', xmlDoc, null, XPathResult.ANY_TYPE, null);
-    let totalProfit = 0;
-    let restaurantNode = restaurants.iterateNext();
-    while (restaurantNode) {
-        const profit = parseFloat(restaurantNode.querySelector('profit').textContent);
 
-        if (!isNaN(profit)) {
-            totalProfit += profit;
-        }
-
-        restaurantNode = restaurants.iterateNext();
-    }
-    return totalProfit.toFixed(2); // Displaying total profit with two decimal places
-}
-
-    
 // Call the function when the page loads
 window.onload = displayRestaurantInfo;
 </script>
